@@ -20,7 +20,7 @@ public class InitDbConnection {
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
 			SqlSession session = sqlSessionFactory.openSession();
 			TeacherMapper mapper = session.getMapper(TeacherMapper.class);
-			TeacherEntity entity = mapper.getItem(1);
+			TeacherEntity entity = mapper.getItem(2);
 			return entity;
 		} catch (IOException e) {
 			e.printStackTrace();
