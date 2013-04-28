@@ -7,7 +7,7 @@
     <script src="/js/jquery-1.9.1.min.js" type="text/javascript" ></script>
 	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>
 	<script type="text/javascript">
-    	$().ready(function(){
+    	$(document).ready(function(){
 			alert(11);
 		});
 	</script>

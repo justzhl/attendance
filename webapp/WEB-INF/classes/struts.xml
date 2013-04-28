@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
-	<constant name="struts.objectFactory" value="sprint"></constant>
+	<constant name="struts.objectFactory" value="spring"></constant>
     <!-- struts2的action必须放在一个指定的包空间下定义 -->
     <package name="default" extends="struts-default" namespace="/">
         <!-- 定义处理请求URL为login.action的Action -->

@@ -2,6 +2,7 @@
 <!DOCTYPE beans PUBLIC 
        "-//SPRING//DTD BEAN//EN"
        "http://www.springframework.org/dtd/spring-beans.dtd">
-<beans default-autowire="byName">
-       <bean id="personManager" class="com.acme.PersonManager"/>
+<beans>
+	<bean id="LoginAction" class="edu.uestc.attendance.action.LoginAction">
+	</bean>
 </beans>
