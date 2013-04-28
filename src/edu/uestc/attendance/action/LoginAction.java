@@ -1,8 +1,10 @@
 package edu.uestc.attendance.action;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import edu.uestc.attendance.service.LoginService;
 
-public class LoginAction {
+public class LoginAction extends ActionSupport{
 	private String userName;
 	private String passWord;
 	private LoginService login;
@@ -11,7 +13,7 @@ public class LoginAction {
 	public String execute() throws Exception {
 		if(login.Exist(userName, passWord)){
 			login.setSession();
-			return "SUCCESS";
+			return SUCCESS;
 		}
 		return "ERROR";
 	}

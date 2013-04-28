@@ -16,7 +16,7 @@
  <body>
   <h2>用户入口</h2>
   <hr>
-    <form action="/login.action" method="post">
+    <form action="login.action" method="post">
         <table border="1">
            <tr>
                <td>用户名：</td>

@@ -5,12 +5,12 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<constant name="struts.objectFactory" value="spring"></constant>
     <!-- struts2的action必须放在一个指定的包空间下定义 -->
-    <package name="default" extends="struts-default" namespace="/">
+    <package name="default" extends="struts-default">
         <!-- 定义处理请求URL为login.action的Action -->
         <action name="login" class="LoginAction">
             <!-- 定义处理结果字符串和资源之间的映射关系 -->
-            <result name="success">/success.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success">success.jsp</result>
+            <result name="error">error.jsp</result>
         </action>
     </package>
 </struts>
