@@ -6,7 +6,7 @@ public class LogimImpl implements LoginService {
 
 	@Override
 	public boolean Exist(String username, String password) {
-		return false;
+		return true;
 	}
 
 	@Override

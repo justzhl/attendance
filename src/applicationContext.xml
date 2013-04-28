@@ -3,6 +3,11 @@
        "-//SPRING//DTD BEAN//EN"
        "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
+	<bean id="LoginService" class="edu.uestc.attendance.impl.LogimImpl">
+	</bean>
 	<bean id="LoginAction" class="edu.uestc.attendance.action.LoginAction">
+		<property name="login">
+			<ref bean="LoginService" />
+		</property>
 	</bean>
 </beans>
