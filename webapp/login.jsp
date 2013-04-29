@@ -7,12 +7,9 @@
     <script src="/js/jquery-1.9.1.min.js" type="text/javascript" ></script>
 	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>
 	<script type="text/javascript">
-    	$(document).ready(function(){
-			alert(11);
-		});
 	</script>
 
- 
+ </head>
  <body>
   <h2>用户入口</h2>
   <hr>

@@ -10,7 +10,25 @@
     http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.2xsd">
-    
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">      
+	   	<property name="url" value="jdbc:mysql://localhost:3306/courses" />     
+	   	<property name="username" value="root" />     
+	   	<property name="password" value="get.love" />       
+		<property name="filters" value="stat" />       
+		<property name="maxActive" value="20" />     
+		<property name="maxWait" value="60000" />     
+		<property name="minIdle" value="1" />       
+		<property name="timeBetweenEvictionRunsMillis" value="3000" />     
+		<property name="minEvictableIdleTimeMillis" value="300000" />       
+		<property name="validationQuery" value="SELECT 'x'" />     
+		<property name="testWhileIdle" value="true" />     
+		<property name="testOnBorrow" value="false" />     
+		<property name="testOnReturn" value="false" />              
+	</bean> 
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
 	<bean id="LoginService" class="edu.uestc.attendance.impl.LogimImpl">
 	</bean>
 	<bean id="LoginAction" class="edu.uestc.attendance.action.LoginAction">
