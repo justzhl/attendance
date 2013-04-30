@@ -2,12 +2,11 @@ package edu.uestc.attendance.dao;
 
 import java.io.Serializable;
 
-public class StudentEntity implements Serializable{
+public class StudentEntity{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1758570587782066832L;
 	
 	private String id;
 	private String name;
@@ -73,9 +72,6 @@ public class StudentEntity implements Serializable{
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

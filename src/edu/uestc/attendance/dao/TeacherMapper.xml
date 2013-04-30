@@ -6,6 +6,15 @@
 		<id property="id" column="id"/>
 		<result property="name" column="name"/>
 	</resultMap>
+	<resultMap type="int" id="LoginMap">
+		<result column="counts" property="result" />
+	</resultMap>
+	
+	
+	<select id="teacherLogin" resultMap="LoginMap" resultType="int">
+		select count(*) as result from teachers where username=#{user} and password = ${pass}
+	</select>
+	
 	
 	<!-- 查询 ,根据id -->
 	<select id="getItem" parameterType="int" resultType="edu.uestc.attendance.dao.TeacherEntity" resultMap="TeacherResultMap">

@@ -9,8 +9,19 @@
         <!-- 定义处理请求URL为login.action的Action -->
         <action name="login" class="LoginAction">
             <!-- 定义处理结果字符串和资源之间的映射关系 -->
-            <result name="success">success.jsp</result>
+            <result name="success">main.jsp</result>
             <result name="error">error.jsp</result>
+        </action>
+    </package>
+    
+    
+    <package name="json" extends="json-default" namespace="/">
+        <!-- 定义处理请求URL为login.action的Action -->
+        <action name="liststudents" class="listStudents">
+            <!-- 定义处理结果字符串和资源之间的映射关系 -->
+            <result type="json">
+            	<param name="root">datamap</param>
+            </result>
         </action>
     </package>
 </struts>

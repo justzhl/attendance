@@ -1,39 +1,38 @@
-html{
-	background:url(../images/login_bg.jpg) repeat-x;
+.login_html{
+	background:url(/images/login_bg.jpg) repeat-x;
 }
 
+body{
+	margin:0 auto;
+	width:100%;
+}
 
 .login_btn {
-	background:images/login_btn_bg no-repeat;
+	background:/images/login_btn_bg no-repeat;
 }
 
 .login_block{
 	width:500px;
-	height:400px;
 	margin:100px auto;
 	padding:0;
-	background-color:#fff;
-	border:#000 1px solid;
 }
 
 .login_block_head{
-	width:480px;
-	height:100px;
-	margin-left:20px;
-	background:#3CF;
+	width:482px;
+	height:70px;
+	margin-left:18px;
+	background-color:#fff;
 }
 .login_block_main{
-	width:490px;
-	height:100px;
-	margin-left:10px;
+	width:500px;
 	float:left;
 }
 .login_block_bottom{
-	width:480px;
-	height:100px;
-	margin-left:20px;
-	float:right;
+	width:482px;
+	margin-left:18px;
+	float:left;
 	text-align:left;
+	background-color:#fff;
 }
 
 .login_table{
@@ -41,4 +40,60 @@ html{
 	margin:0 auto;
 	border:1px solid #fff;
 	border-collapse:collapse;
+	text-align:left;
+}
+
+.main_top{
+	width:100%;
+	height:110px;
+	clear:both;
+	background-color:#444;
+}
+
+.main_menu{
+	width:250px;
+	height:1000px;
+	float:left;
+	border-right:10px solid #eee;
+}
+
+.main_content{
+	width:940px;
+	height:1000px;
+	float:left;
+}
+
+.top_html{
+	width:100%;
+	height:100px;
+	margin:0 auto;
+	background:url(/images/top_bg.png) repeat-x;
+	border-bottom:10px solid #eee;
+}
+
+.top_logo{
+	margin:0;
+	padding-left:10px;
+	padding-top:10px;
+	background:none;
+}
+
+.top_menu{
+	width:96%;
+	margin:10px auto;
+	height:30px;
+}
+
+.top_table{
+	width:100%;
+	font-size:10px;
+	height:30px;
+}
+
+.top_table th{
+	width:12px;
+}
+
+.top_table td{
+	background:#003973;
 }
