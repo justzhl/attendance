@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.uestc.attendance.dao.TeacherMapper">
+<mapper namespace="edu.uestc.attendance.dao.teacher.TeacherMapper">
 
-	<resultMap type="edu.uestc.attendance.dao.TeacherEntity" id="TeacherResultMap">
+	<resultMap type="edu.uestc.attendance.dao.teacher.TeacherEntity" id="TeacherResultMap">
 		<id property="id" column="id"/>
 		<result property="name" column="name"/>
 	</resultMap>
+	
+	
 	<resultMap type="int" id="LoginMap">
 		<result column="counts" property="result" />
 	</resultMap>
@@ -17,7 +19,7 @@
 	
 	
 	<!-- 查询 ,根据id -->
-	<select id="getItem" parameterType="int" resultType="edu.uestc.attendance.dao.TeacherEntity" resultMap="TeacherResultMap">
+	<select id="getItem" parameterType="int" resultType="edu.uestc.attendance.dao.teacher.TeacherEntity" resultMap="TeacherResultMap">
 		<![CDATA[
 			SELECT * 
 			from teachers where id = #{id}
@@ -25,7 +27,7 @@
 	</select>
 	
 	<!-- 查询,列表 -->
-	<select id="getList"  resultType="edu.uestc.attendance.dao.TeacherEntity" resultMap="TeacherResultMap">
+	<select id="getList"  resultType="edu.uestc.attendance.dao.teacher.TeacherEntity" resultMap="TeacherResultMap">
 		<![CDATA[
 			SELECT * from teachers
 		]]> 

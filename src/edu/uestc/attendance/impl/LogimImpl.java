@@ -1,17 +1,39 @@
 package edu.uestc.attendance.impl;
 
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.opensymphony.xwork2.ActionContext;
+
 import edu.uestc.attendance.dao.InitDbConnection;
-import edu.uestc.attendance.dao.LoginEntity;
-import edu.uestc.attendance.dao.TeacherEntity;
+import edu.uestc.attendance.dao.UserEntity;
+import edu.uestc.attendance.dao.teacher.TeacherEntity;
 import edu.uestc.attendance.service.LoginService;
 
 public class LogimImpl implements LoginService {
-	private InitDbConnection conn;
-	private LoginEntity entity = new LoginEntity();
+	private SqlSessionFactory sqlSessionFactory;
+	private UserEntity entity = new UserEntity();
+	public SqlSessionFactory getSqlSessionFactory() {
+		return sqlSessionFactory;
+	}
+
+	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+		this.sqlSessionFactory = sqlSessionFactory;
+	}
+
+	public UserEntity getEntity() {
+		return entity;
+	}
+
+	public void setEntity(UserEntity entity) {
+		this.entity = entity;
+	}
+
 	@Override
 	public boolean Exist(String usertype,String username, String password) {
 		//—È÷§∑«ø’
-		if(password == null ){
+		if(password == null||username ==null||usertype == null){
 			return false;
 		}
 		entity.setUser(username);
@@ -23,20 +45,21 @@ public class LogimImpl implements LoginService {
 		} else if(usertype.equals("student")) {
 			entity.setType("students");
 		}
-		return conn.Init(entity);
+		int result = sqlSessionFactory.openSession().selectOne("edu.uestc.attendance.dao.UserMapper.checkLogin",entity);
+		if(0 == result){
+			return false;
+		}
+		UserEntity user = sqlSessionFactory.openSession().selectOne("edu.uestc.attendance.dao.UserMapper.getItem",entity);
+		setEntity(user);
+		setSession(user);
+		//set session
+		return true;
 	}
 
 	@Override
-	public void setSession() {
-		
-	}
-
-	public InitDbConnection getConn() {
-		return conn;
-	}
-
-	public void setConn(InitDbConnection conn) {
-		this.conn = conn;
+	public void setSession(UserEntity user) {
+		Map session = ActionContext.getContext().getSession();
+		session.put("UserInfo", user);
 	}
 	
 }

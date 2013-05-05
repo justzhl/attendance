@@ -9,7 +9,12 @@
 </head>
 
 <body>
-	<img src="images/backup_1.png" alt="" width="250" height="625" />
+	<form action="liststudentinterval.action" method="post">
+		<input type="text" value="28080" name="stuid" />
+		<input type="text" value="1" name="start" />
+		<input type="text" value="4" name="end" />
+		<input type="submit" value="submit" />
+	</form>
 </body>
 </html>
 

@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.uestc.attendance.dao.StudentEntity;
+import edu.uestc.attendance.dao.student.StudentEntity;
 import edu.uestc.attendance.service.TeacherService;
 
 public class listStudents extends ActionSupport {

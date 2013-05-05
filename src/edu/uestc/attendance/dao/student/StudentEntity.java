@@ -1,4 +1,4 @@
-package edu.uestc.attendance.dao;
+package edu.uestc.attendance.dao.student;
 
 import java.io.Serializable;
 

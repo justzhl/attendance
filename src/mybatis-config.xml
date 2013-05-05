@@ -4,8 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 	<configuration>
 		<mappers>  
-		    <mapper resource="edu/uestc/attendance/dao/TeacherMapper.xml" />  
-		    <mapper resource="edu/uestc/attendance/dao/LoginMapper.xml" />  
-		    <mapper resource="edu/uestc/attendance/dao/StudentMapper.xml" />  
+		    <mapper resource="edu/uestc/attendance/dao/UserMapper.xml" />  
+		    <mapper resource="edu/uestc/attendance/dao/AttendanceMapper.xml" />  
+		    <mapper resource="edu/uestc/attendance/dao/student/StudentMapper.xml" />  
+		    <mapper resource="edu/uestc/attendance/dao/teacher/TeacherMapper.xml" />  
 		</mappers>  
 	</configuration>

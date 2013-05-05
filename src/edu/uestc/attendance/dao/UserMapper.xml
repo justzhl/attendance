@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.uestc.attendance.dao.UserMapper">
+	<resultMap type="int" id="LoginMap">
+		<result column="result" property="result" />
+	</resultMap>
+	
+	<resultMap type="edu.uestc.attendance.dao.UserEntity" id="UerMap">
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="im" column="im"/>
+		<result property="telphone" column="telphone"/>
+		<result property="type" column="type"/>
+		<result property="id" column="id"/>
+	</resultMap>
+	
+	
+	<select id="checkLogin" resultMap="LoginMap" resultType="int">
+		select count(*) as result from 
+			<if test="type == 'teachers'">teachers</if>
+			<if test="type == 'students'">students</if>
+			<if test="type == 'administrators'">administrators</if>
+		 where username=#{user} and password=#{pass}
+	</select>
+	
+	<select id="getItem" resultMap="UerMap" resultType="edu.uestc.attendance.dao.UserEntity">
+		select im,email,telphone,name,
+			<if test="type == 'teachers'">teacher_id as id</if>
+			<if test="type == 'students'">student_id as id</if>
+			<if test="type == 'administrators'">admin_id as id</if>
+		from 
+			<if test="type == 'teachers'">teachers</if>
+			<if test="type == 'students'">students</if>
+			<if test="type == 'administrators'">administrators</if>
+			<!-- 这里不好，应该根据id来查找 -->
+		where username=#{user} and password=#{pass}
+	</select>
+	
+</mapper>

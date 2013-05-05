@@ -1,8 +1,11 @@
 package edu.uestc.attendance.action;
 
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.uestc.attendance.dao.TeacherEntity;
+import edu.uestc.attendance.dao.teacher.TeacherEntity;
 import edu.uestc.attendance.service.LoginService;
 
 public class LoginAction extends ActionSupport{
@@ -10,7 +13,13 @@ public class LoginAction extends ActionSupport{
 	private String password;
 	private String usertype;
 	private LoginService login;
-
+	private Map session;
+	public Map getSession() {
+		return session;
+	}
+	public void setSession(Map session) {
+		this.session = session;
+	}
 	public String getUsertype() {
 		return usertype;
 	}
@@ -41,7 +50,6 @@ public class LoginAction extends ActionSupport{
 		if(!login.Exist(usertype,userName, password)){
 			return ERROR;
 		} else {
-			login.setSession();
 			return SUCCESS;
 		}
 	}

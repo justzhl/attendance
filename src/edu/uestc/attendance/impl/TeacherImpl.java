@@ -5,8 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import edu.uestc.attendance.dao.StudentEntity;
-import edu.uestc.attendance.dao.StudentMapper;
+import edu.uestc.attendance.dao.student.StudentEntity;
+import edu.uestc.attendance.dao.student.StudentMapper;
 import edu.uestc.attendance.service.TeacherService;
 
 public class TeacherImpl implements TeacherService {

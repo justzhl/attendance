@@ -18,10 +18,10 @@
     	<iframe name="top_frame" src="./top.jsp" frameborder="0" width="100%" scrolling="no" ></iframe>
     </div>
     <div class="main_menu">
-		<iframe name="menu_frame" src="./menu.jsp" frameborder="0" width="100%" height="1000px" ></iframe>
+		<iframe name="menu_frame" src="./menu.html" frameborder="0" width="100%" height="1000px" ></iframe>
     </div>
     <div class="main_content">
-		<iframe name="content_frame" src="/liststudents.action" frameborder="0" width="100%" height="1000px" ></iframe>
+		<iframe name="content_frame" src="/ajax/index.html" frameborder="0" width="100%" height="1000px" ></iframe>
     </div>
 </body>
 </html>

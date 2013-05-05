@@ -12,6 +12,9 @@
             <result name="success">main.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+        <action name="liststudentinterval" class="AttendanceAction">
+        	<result>liststudentattendance.jsp</result>
+        </action>
     </package>
     
     

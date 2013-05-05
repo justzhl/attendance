@@ -30,7 +30,7 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 	<bean id="LoginService" class="edu.uestc.attendance.impl.LogimImpl">
-		<property name="conn" ref="InitDbConnection"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 	<bean id="LoginAction" class="edu.uestc.attendance.action.LoginAction">
 		<property name="login" ref="LoginService" />
@@ -41,6 +41,10 @@
 	<bean id="listStudents" class="edu.uestc.attendance.action.teacher.listStudents">
 		<property name="teacher" ref="TeacherService"></property>
 	</bean>
-
-	
+	<bean id="AttendanceImpl" class="edu.uestc.attendance.impl.AttendanceImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	<bean id="AttendanceAction" class="edu.uestc.attendance.action.AttendanceAction">
+		<property name="attendance" ref="AttendanceImpl"></property>
+	</bean>
 </beans>

@@ -9,9 +9,9 @@ public class InitDbConnection {
 	private SqlSessionFactory sqlSessionFactory;
 	
 	
-	public boolean Init(LoginEntity entity){
+	public boolean Init(UserEntity entity){
 		SqlSession session = sqlSessionFactory.openSession();
-		LoginMapper map = session.getMapper(LoginMapper.class);
+		UserMapper map = session.getMapper(UserMapper.class);
 		int result = map.checkLogin(entity);
 		if(0<result){
 			return true;
