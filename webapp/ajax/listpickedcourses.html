@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>教务考勤系统</title>
+    <style type="text/css">
+    	@import "demo_page.css";
+    	@import "demo_table.css";
+		@import "jquery-ui-1.7.2.custom.css";
+		@import "demo_table_jui.css";
+    </style>
+    <script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="jquery.dataTables.min.js" type="text/javascript"></script>
+</head>
+
+<body style="margin:0 auto;">
+<div  id="dt_example">
+    <div id="container" class="ui-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix">
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+	<thead>
+		<tr>
+        	<th>课程名</th>
+        	<th>上课时间</th>
+        	<th>学生姓名</th>
+        	<th>学号</th>
+        	<th>学生性别</th>
+        	<th>教师姓名</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="5" class="dataTables_empty">Loading data from server</td>
+		</tr>
+	</tbody>
+</table>
+    </div></div>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+			$("#example").dataTable({
+				"bJQueryUI": true,
+				"sPaginationType": "full_numbers",
+				"bProcessing":true,
+				"sAjaxSource":"/listpickedcourses.action",
+				"aoColumns":[{"mData":"course_name"},
+				             {"mData":"course_time"},
+				             {"mData":"student_name"},
+				             {"mData":"student_id"},
+				             {"mData":"student_sex"},
+				             {"mData":"teacher_name"}]
+			});
+		});
+    </script>
+</body>
+</html>

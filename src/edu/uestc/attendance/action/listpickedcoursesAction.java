@@ -48,25 +48,24 @@ public class listpickedcoursesAction extends ActionSupport {
 	public String execute(){
 		List<PickedCourseEntity> result;
 		//如果存在教师id，那么用教师id去查找
+		//如果存在学号，那么用学号去查找
 		if(teacherid!=0){
 			result = pickedCourse.listByTeaID(teacherid);
-		}
-		//如果存在学号，那么用学号去查找
-		if(studentid!=0){
+		}else if(studentid!=0){
 			result = pickedCourse.listByStuID(studentid);
 		}
-		//默认使用自己session中的id去查找
+		//否则使用自己session中的id去查找
 		Map session = ActionContext.getContext().getSession();
 		UserEntity user = (UserEntity)session.get("userinfo");
 		if(user==null){
-			return Action.ERROR;
+			return Action.LOGIN;
 		}
 		if(UserEntity.STUDENTS == user.getUsertype()){
 			result = pickedCourse.listByStuID(user.getId());
 		} else if(UserEntity.TEACHERS== user.getUsertype()){
 			result = pickedCourse.listByTeaID(user.getId());
 		} else{
-			return Action.LOGIN;
+			return Action.ERROR;
 		}
 		if(result == null){
 			return Action.ERROR;

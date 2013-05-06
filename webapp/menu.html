@@ -16,6 +16,9 @@
 		$("#sec_menu").menu();
 		$("#thr_menu").menu();
 		$("#thi_menu").menu();
+	});
+	
+	$(function(){
 		$("a").click(function(){
 			var $target = $(this).attr("value");
 			if(null == $target){
@@ -54,7 +57,7 @@
   <h5>课程查询</h5>
     <div>
     <ul id="thr_menu">
-    	<li><a href="#">选课情况</a></li>
+    	<li><a href="#" value="/ajax/listpickedcourses.html">选课情况</a></li>
     	<li><a href="#">状态</a></li>
     	<li><a href="#">历史</a></li>
     	<li><a href="#">补交</a></li>
