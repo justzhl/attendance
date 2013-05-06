@@ -6,8 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 
-import edu.uestc.attendance.dao.AttendanceEntity;
-import edu.uestc.attendance.dao.AttendanceMapper;
+import edu.uestc.attendance.dao.common.AttendanceEntity;
+import edu.uestc.attendance.dao.common.AttendanceMapper;
 import edu.uestc.attendance.service.AttendanceService;
 
 public class AttendanceImpl implements AttendanceService {

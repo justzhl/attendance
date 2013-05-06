@@ -2,7 +2,7 @@ package edu.uestc.attendance.service;
 
 import java.util.List;
 
-import edu.uestc.attendance.dao.AttendanceEntity;
+import edu.uestc.attendance.dao.common.AttendanceEntity;
 
 public interface AttendanceService {
 	//student

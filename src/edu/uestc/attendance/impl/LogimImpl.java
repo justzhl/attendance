@@ -6,9 +6,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.opensymphony.xwork2.ActionContext;
 
-import edu.uestc.attendance.dao.InitDbConnection;
 import edu.uestc.attendance.dao.UserEntity;
-import edu.uestc.attendance.dao.teacher.TeacherEntity;
+import edu.uestc.attendance.dao.UserMapper;
 import edu.uestc.attendance.service.LoginService;
 
 public class LogimImpl implements LoginService {
@@ -31,25 +30,21 @@ public class LogimImpl implements LoginService {
 	}
 
 	@Override
-	public boolean Exist(String usertype,String username, String password) {
+	public boolean Exist(int usertype,long id, String password) {
 		//—È÷§∑«ø’
-		if(password == null||username ==null||usertype == null){
+		if(password == null||id == 0){
 			return false;
 		}
-		entity.setUser(username);
+		entity.setId(id);
 		entity.setPass(password);
-		if(usertype.equals("admin")){
-			entity.setType("administrators");
-		} else if(usertype.equals("teacher")) {
-			entity.setType("teachers");
-		} else if(usertype.equals("student")) {
-			entity.setType("students");
-		}
-		int result = sqlSessionFactory.openSession().selectOne("edu.uestc.attendance.dao.UserMapper.checkLogin",entity);
+		entity.setUsertype(usertype);
+		UserMapper mapper = sqlSessionFactory.openSession().getMapper(UserMapper.class);
+		int result = mapper.checkLogin(entity);
 		if(0 == result){
 			return false;
 		}
-		UserEntity user = sqlSessionFactory.openSession().selectOne("edu.uestc.attendance.dao.UserMapper.getItem",entity);
+		UserEntity user = mapper.getItem(entity);
+		//set usertype
 		setEntity(user);
 		setSession(user);
 		//set session
@@ -59,7 +54,7 @@ public class LogimImpl implements LoginService {
 	@Override
 	public void setSession(UserEntity user) {
 		Map session = ActionContext.getContext().getSession();
-		session.put("UserInfo", user);
+		session.put("userinfo", user);
 	}
 	
 }

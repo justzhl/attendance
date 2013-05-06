@@ -7,8 +7,8 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.uestc.attendance.dao.AttendanceEntity;
 import edu.uestc.attendance.dao.UserEntity;
+import edu.uestc.attendance.dao.common.AttendanceEntity;
 import edu.uestc.attendance.impl.AttendanceImpl;
 
 public class AttendanceAction extends ActionSupport {

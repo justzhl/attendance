@@ -8,10 +8,13 @@
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
 
-<body>
-	<div class="top_html">
-    	<div class="top_logo"><img src="images/logo.png" width="190" border="0" height="40" alt="logo" /></div>
-        <div class="top_menu">
+<body bgcolor="#eee">
+    <div class="top_html">
+    <table cellpadding="0" cellspacing="0" border="0" height="120" width="100%">
+    	<tr><td>
+        	<img src="images/logo.png" width="190" border="0" height="40" alt="logo" />
+        </td></tr>
+    	<tr><td>
         	<table cellpadding="0" cellspacing="0" border="0" class="top_table">
             	<tbody>
                 	<tr><th background="images/angel.png" ></th><td>&nbsp;</td><th background="images/angel-2.png"></th></tr>
@@ -22,8 +25,9 @@
                         </td>
                         <td></td></tr>
                 </tbody>
-            </table>    
-        </div>
+            </table>   
+        </td></tr>
+    </table>
     </div>
 </body>
 </html>

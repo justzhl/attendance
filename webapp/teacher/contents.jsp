@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
-<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,8 +14,8 @@
 </head>
 
 <body style="margin:0 auto;">
-	<div id="container">
-	<table width="500" id="students_list" class="display">
+	<div id="container" style="width:100%">
+	<table width="400" id="students_list" class="display">
     	<thead>
             <tr>
                 <td>学号</td>
@@ -31,7 +30,11 @@
 	</table>
     <script type="text/javascript">
     	$(document).ready(function(){
-			$("#students_list").dataTable({"sPaginationType": "full_numbers","iDisplayLength":10,"bPaginate":true,"sAjaxSource":"http://myhost:8080/liststudents.action"});
+			$("#students_list").dataTable({"sPaginationType": "full_numbers",
+				"iDisplayLength":30,
+				"bPaginate":true,
+				"sAjaxSource":"http://myhost:8080/liststudents.action"
+				});
 		});
     </script>
     </div>

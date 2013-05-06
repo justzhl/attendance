@@ -9,16 +9,14 @@
     <script type="text/javascript">
     	$(document).ready(function(){
 			$("a").click(function(){
-				document.location = "http://m.baidu.com";
+				$("#target").attr("src","http://m.m.c");
 			});
 		});
-		function getlist(){
-			alert("works");
-		}
     </script>
 </head>
 
 <body bgcolor="#6633CC">
-	<a onclick="getlist();" >sssssssssssssss</a>
+	<a href="#">sssssssssssssss</a>
+	<iframe id="target" src="http://m.oschina.net"></iframe>
 </body>
 </html>

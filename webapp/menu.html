@@ -16,7 +16,15 @@
 		$("#sec_menu").menu();
 		$("#thr_menu").menu();
 		$("#thi_menu").menu();
+		$("a").click(function(){
+			var $target = $(this).attr("value");
+			if(null == $target){
+				$target = "/ajax/index.html";
+			}
+			$("#content_frame",parent.document.body).attr("src",$target);
+			return false;
 		});
+	});
 </script>
 </head>
 
@@ -28,8 +36,8 @@
     </h5>
     <div>
     <ul id="top_menu">
-    	<li><a href="#">缺勤查询</a></li>
     	<li><a href="#">出勤查询</a></li>
+    	<li><a href="#" value="http://3g.qq.com">缺勤查询</a></li>
     	<li><a href="#">sss</a></li>
     	<li><a href="#">4</a></li>
     </ul>

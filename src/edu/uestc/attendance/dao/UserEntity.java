@@ -1,17 +1,19 @@
 package edu.uestc.attendance.dao;
 
 public class UserEntity {
-	private String type;
 	private String user;
 	private String pass;
 	
 	private String name;
-	private String usertype;
+	private int usertype;
 	private String im;
 	private String email;
 	private String telphone;
 	private long id;
 	
+	public final static int TEACHERS = 2;
+	public final static int STUDENTS = 1;
+	public final static int ADMINISTRATORS = 0;
 	
 	
 	public String getName() {
@@ -20,10 +22,10 @@ public class UserEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getUsertype() {
+	public int getUsertype() {
 		return usertype;
 	}
-	public void setUsertype(String usertype) {
+	public void setUsertype(int usertype) {
 		this.usertype = usertype;
 	}
 	public String getIm() {
@@ -49,12 +51,6 @@ public class UserEntity {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
 	}
 	public String getUser() {
 		return user;
