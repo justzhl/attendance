@@ -8,7 +8,7 @@
     <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script type="text/javascript">
     	$(document).ready(function(){
-			$("#contents").height="1000";
+			$("#content_frame").attr("height","1000");
 		});
     </script>
 </head>
