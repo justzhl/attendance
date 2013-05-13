@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.uestc.attendance.dao.student.TeachMessageMapper">
+<mapper namespace="edu.uestc.attendance.dao.teacher.TeachMessageMapper">
 	<resultMap type="edu.uestc.attendance.dao.teacher.TeachMessageEntity" id="TeachMessageEntity">
 		<result column="contents" property="contents" />
 		<result column="student_id" property="student_id" />
@@ -11,7 +11,7 @@
 	</resultMap>
 	
 	
-	<insert id="sendMessage" databaseId="id" timeout="20" flushCache="true" parameterType="edu.uestc.attendance.dao.teacher.TeachMessageEntity">
+	<insert id="sendMessage"  parameterType="edu.uestc.attendance.dao.teacher.TeachMessageEntity" >
 		insert into teach_message 
 		(contents,teacherid,submit_time,time,instructorid) 
 		values (#{contents},#{teacher_id},#{submit_time},#{time},#{instructor_id})

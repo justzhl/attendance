@@ -24,6 +24,7 @@
         	<result name="error">/ajax/index.html</result>
         </action>
         <action name="GetMyInstructorId" class="TeachMessage" method="getMyInstructorId">
+        	<result></result>
         </action>
     </package>
     

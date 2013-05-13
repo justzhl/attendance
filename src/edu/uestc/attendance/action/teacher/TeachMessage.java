@@ -1,5 +1,6 @@
 package edu.uestc.attendance.action.teacher;
 
+import java.nio.charset.Charset;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import edu.uestc.attendance.dao.UserEntity;
 import edu.uestc.attendance.dao.teacher.TeachMessageEntity;
 import edu.uestc.attendance.dao.teacher.TeachMessageMapper;
+import edu.uestc.attendance.utils.Session;
 
 public class TeachMessage extends ActionSupport {
 	private TeachMessageEntity record;
@@ -44,51 +46,62 @@ public class TeachMessage extends ActionSupport {
 	}
 	
 	//获取老师的行政班级id
-	public void getMyInstructorId(){
-		Map session = ActionContext.getContext().getSession();
-		UserEntity user = (UserEntity)session.get("userinfo");
-		HttpServletRequest request = ServletActionContext.getRequest();
-		List<String> mytest = new ArrayList<String>();
-		mytest.add("111111");
-		mytest.add("22222222222");
-		mytest.add("33333333333");
-		mytest.add("44444444444");
-		request.setAttribute("mytest",mytest);
-		System.out.println("runing");
+	public String getMyInstructorId(){
+		UserEntity teacher = Session.getTeacher();
+		if(teacher == null){
+			System.out.println("error:1");
+			return Action.ERROR;
+		}
+		this.myInstructorId = service.getMyInstructorId(teacher.getId());
+		Map mysession = Session.getTeacherSession();
+		if(mysession.get("myInstructorId") == null){
+			mysession.put("myInstructorId", myInstructorId);
+		} else {
+			mysession.remove("myInstructorId");
+			mysession.put("myInstructorId", myInstructorId);
+		}
+		return Action.SUCCESS;
 	}
 	
 	
 	public String sendMessage(){
-		System.out.println("step:1"+record.getContents());
-		Map session = ActionContext.getContext().getSession();
-		UserEntity user = (UserEntity)session.get("userinfo");
-		if(UserEntity.TEACHERS != user.getUsertype()){
-			return Action.ERROR;
-		} else if(0>= user.getId()){
+		UserEntity user = Session.getTeacher();
+		if(user == null){
 			return Action.ERROR;
 		}
 		record.setTeacher_id(user.getId());
-		java.util.Date submit = new java.util.Date();
-		record.setSubmit_time(new Date(submit.getTime()));
-		if(record.getContents().length() <1){
-			addFieldError("contents", "请输入内容.");
-			return Action.INPUT;
-		}
-		if(record.getTime() == null){
-			addFieldError("time", "请输入日期.");
-			return Action.INPUT;
-		}
-		if(0>=record.getInstructor_id()){
-			addFieldError("time", "请选择正确的班级.");
-			return Action.INPUT;
-		}
+		record.setSubmit_time(new Date(new java.util.Date().getTime()));
+		//String contents = new String(record.getContents().getBytes(),Charset.forName("utf-8"));
+		//record.setContents(contents);
 		int result = service.sendMessage(record);
 		if(result == 1){
-			System.out.println("contents:"+record.getContents());
 			return Action.SUCCESS;
 		}else{
-			
+			clearFieldErrors();
+			addFieldError("error", "发生未知错误，请联系管理员.");
+			return Action.INPUT;
 		}
-		return Action.SUCCESS;
 	}
+
+	public void validateSendMessage() {
+		clearFieldErrors();
+		if(record.getContents().length() <1){
+			addFieldError("record.contents", "请输入内容.");
+			return;
+		}
+		if(record.getTime() == null){
+			addFieldError("record.time", "请输入日期,并且使用正确的格式.");
+			return;
+		} else if(record.getTime().getTime() < new java.util.Date().getTime()){
+			addFieldError("record.time", "所选日期无效.");
+			return;
+		}
+		if(0>=record.getInstructor_id()){
+			
+			addFieldError("record.instructor_id", "请选择正确的班级.");
+			return;
+		}
+	}
+	
+	
 }
