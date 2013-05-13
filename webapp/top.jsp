@@ -12,8 +12,7 @@
     <div class="top_html">
     <table cellpadding="0" cellspacing="0" border="0" height="120" width="100%">
     	<tr><td>
-        	<img src="images/logo.png" width="190" border="0" height="40" alt="logo" />
-        </td></tr>
+   	  		<img src="images/logo.png" width="180" height="29" alt="logo" /></td></tr>
     	<tr><td>
         	<table cellpadding="0" cellspacing="0" border="0" class="top_table">
             	<tbody>

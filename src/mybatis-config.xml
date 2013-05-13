@@ -12,9 +12,11 @@
 		    
 		    
 		    <mapper resource="edu/uestc/attendance/dao/student/StudentMapper.xml" />  
+		    <mapper resource="edu/uestc/attendance/dao/student/TeachMessageMapper.xml" />  
 		    
 		    
 		    
 		    <mapper resource="edu/uestc/attendance/dao/teacher/TeacherMapper.xml" /> 
+		    <mapper resource="edu/uestc/attendance/dao/teacher/TeachMessageMapper.xml" />
 		</mappers>  
 	</configuration>

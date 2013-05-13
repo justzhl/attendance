@@ -1,0 +1,28 @@
+/* CSS Document */
+
+.submit_table{
+	border-collapse:collapse;
+	border:1px solid #000;
+}
+
+.submit_table th{
+	background:#069;
+}
+
+.submit_table input{
+	border:1px solid #eee;
+	height:20px;
+	width:200px;
+	font-size:18px;
+}
+
+.submit_table button{
+	border:1px solid #eee;
+	height:30px;
+	width:130px;
+	font-size:18px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+

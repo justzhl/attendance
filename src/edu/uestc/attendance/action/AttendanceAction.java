@@ -74,13 +74,6 @@ public class AttendanceAction extends ActionSupport {
 		Map session = ActionContext.getContext().getSession();
 		UserEntity user = (UserEntity)session.get("UserInfo");
 		setEntity(entity);
-		System.out.println(entity.get(0).getStudent_id());
-		System.out.println(entity.get(0).getTeacher_id());
-		System.out.println(entity.get(0).getWeek());
-		System.out.println(entity.get(0).getTime());
-		System.out.println(entity.get(0).getTeacher_name());
-		System.out.println(entity.get(0).getStudent_name());
-		System.out.println("当前登录用户："+user.getName());
 		return Action.SUCCESS;
 	}
 }

@@ -17,5 +17,10 @@
 	<bean id="listStudents" class="edu.uestc.attendance.action.teacher.listStudents">
 		<property name="teacher" ref="TeacherService"></property>
 	</bean>
-	
+	<bean id="TeachersMessageImpl" class="edu.uestc.attendance.impl.TeachersMessageImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	<bean id="TeachMessage" class="edu.uestc.attendance.action.teacher.TeachMessage">
+		<property name="service" ref="TeachersMessageImpl"></property>
+	</bean>
 </beans>

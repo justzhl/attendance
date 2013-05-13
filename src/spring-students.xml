@@ -10,4 +10,14 @@
     http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.2xsd">
+    <bean id="TeachMessageImpl" class="edu.uestc.attendance.impl.TeachMessageImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+    <bean id="GetTeachMessageAction" class="edu.uestc.attendance.action.student.GetTeachMessageAction">
+		<property name="mapper" ref="TeachMessageImpl"></property>
+    </bean>
+    <bean id="GetMyAttendance" class="edu.uestc.attendance.json.ListAttendances">
+		<property name="service" ref="AttendanceImpl"></property>
+    </bean>
 </beans>
+

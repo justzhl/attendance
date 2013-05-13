@@ -27,8 +27,8 @@
 	<!-- usertype 0-admin,1-student,2-teacher -->
 	<select id="getItem" resultMap="UerMap" resultType="edu.uestc.attendance.dao.UserEntity">
 		select im,email,telphone,name,
-			<if test="usertype == 0">0 as type,admin_id as id from teachers where admin_id=#{id}</if> 
-			<if test="usertype == 1">1 as type,student_id as id from teachers where student_id=#{id}</if>
+			<if test="usertype == 0">0 as type,admin_id as id from administrators where admin_id=#{id}</if> 
+			<if test="usertype == 1">1 as type,student_id as id from students where student_id=#{id}</if>
 			<if test="usertype == 2">2 as type,teacher_id as id from teachers where teacher_id=#{id}</if>
 	</select>
 	

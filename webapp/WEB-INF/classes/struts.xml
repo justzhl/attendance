@@ -17,8 +17,18 @@
         </action>
     </package>
     
+    <package name="teacher" extends="struts-default" namespace="/teacher">
+        <action name="TeachMessage" class="TeachMessage" method="sendMessage">
+        	<result name="success">/teacher/messages1.jsp</result>
+        	<result name="input">/teacher/messages.jsp</result>
+        	<result name="error">/ajax/index.html</result>
+        </action>
+        <action name="GetMyInstructorId" class="TeachMessage" method="getMyInstructorId">
+        </action>
+    </package>
     
-    <package name="json" extends="json-default" namespace="/">
+    
+    <package name="json" extends="json-default" namespace="/json">
         <!-- 定义处理请求URL为login.action的Action -->
         <action name="liststudents" class="listStudents">
             <!-- 定义处理结果字符串和资源之间的映射关系 -->
@@ -29,6 +39,21 @@
         <action name="listpickedcourses" class="listpickedcoursesAction">
             <result name="success" type="json">
             	<param name="root">dataSet</param>
+            </result>
+            <result name="login">/login.html</result>
+            <result name="error">/404.html</result>
+        </action>
+        <action name="GetTeachMessage" class="GetTeachMessageAction">
+            <result name="success" type="json">
+            	<param name="root">dataMap</param> 
+            </result>
+            <result name="login">/login.html</result>
+            <result name="error">/404.html</result>
+        </action>
+        
+        <action name="GetMyAttendance" class="GetMyAttendance">
+            <result name="success" type="json">
+            	<param name="root">dataMap</param> 
             </result>
             <result name="login">/login.html</result>
             <result name="error">/404.html</result>

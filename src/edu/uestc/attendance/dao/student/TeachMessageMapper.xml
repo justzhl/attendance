@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.uestc.attendance.dao.student.TeachMessageMapper">
+	<resultMap type="edu.uestc.attendance.dao.student.TeachMessageEntity" id="student_TeachMessageEntity">
+		<result column="contents" property="contents" />
+		<result column="student_id" property="student_id" />
+		<result column="submit_time" property="submit_time" />
+		<result column="time" property="time" />
+		<result column="teacher_time" property="teacher_time" />
+		<result column="course_name" property="course_name" />
+	</resultMap>
+	
+	
+	<select id="getAll" parameterType="long" resultMap="student_TeachMessageEntity">
+		select * from 
+		get_teach_messages where student_id = #{0}
+	</select>
+	
+</mapper>

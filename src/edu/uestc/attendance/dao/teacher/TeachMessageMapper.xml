@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.uestc.attendance.dao.student.TeachMessageMapper">
+	<resultMap type="edu.uestc.attendance.dao.teacher.TeachMessageEntity" id="TeachMessageEntity">
+		<result column="contents" property="contents" />
+		<result column="student_id" property="student_id" />
+		<result column="submit_time" property="submit_time" />
+		<result column="time" property="time" />
+		<result column="teacher_time" property="teacher_time" />
+		<result column="course_name" property="course_name" />
+	</resultMap>
+	
+	
+	<insert id="sendMessage" databaseId="id" timeout="20" flushCache="true" parameterType="edu.uestc.attendance.dao.teacher.TeachMessageEntity">
+		insert into teach_message 
+		(contents,teacherid,submit_time,time,instructorid) 
+		values (#{contents},#{teacher_id},#{submit_time},#{time},#{instructor_id})
+	</insert>
+	
+	<select id="getMyInstructorId" resultType="String">
+		SELECT
+			CONCAT(instructor_class.courseid,'-',
+			instructor_class.time,'-',
+			courses.NAME) as result
+		FROM
+			instructor_class
+		JOIN courses
+		WHERE
+			instructor_class.courseid = courses.course_id
+		and instructor_class.teacherid = #{0}
+	</select>
+</mapper>
