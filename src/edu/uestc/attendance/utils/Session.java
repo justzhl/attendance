@@ -26,4 +26,25 @@ public class Session extends ActionSupport {
 		Map session = getTeacherSession();
 		return session == null?null:(UserEntity)session.get("userinfo");
 	}
+	
+	
+	public static Map getStudentSession(){
+		Map session = ActionContext.getContext().getSession();
+		UserEntity student = (UserEntity)session.get("userinfo");
+		if(student == null){
+			return null;
+		}else if(student.getUsertype()!=UserEntity.STUDENTS){
+			return null;
+		} else if(student.getId()<=0){
+			return null;
+		} else {
+			return session;
+		}
+		
+	}
+	
+	public static UserEntity getStudent(){
+		Map session = getStudentSession();
+		return session == null?null:(UserEntity)session.get("userinfo");
+	}	
 }

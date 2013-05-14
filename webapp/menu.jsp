@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>主页菜单栏</title>
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.ui.core.min.js"></script>
 <script type="text/javascript" src="js/jquery.ui.widget.min.js"></script>
@@ -22,15 +22,6 @@
     <ul id="top_menu">
     	<li><a href="#" value="/ajax/getmyattendance.html">出勤查询</a></li>
     	<li><a href="#" value="#">缺勤查询[紧张的开发中]</a></li>
-    </ul>
-    </div>
-  <h5>请假申请</h5>
-    <div>
-    <ul id="sec_menu">
-    	<li><a href="#">申请[紧张的开发中]</a></li>
-    	<li><a href="#">状态[紧张的开发中]</a></li>
-    	<li><a href="#">历史[紧张的开发中]</a></li>
-    	<li><a href="#">补交[紧张的开发中]</a></li>
     </ul>
     </div>
   <h5>课程查询</h5>
@@ -55,6 +46,17 @@
         -->
     </ul>
     </div>
+   	<!-- 学生菜单 -->
+   	<s:if test="#session.userinfo.getUsertype() == 1">	
+		<h5>请假申请</h5>
+		<div>
+		<ul id="stu_message_menu">
+			<li><a href="#">提交申请</a></li>
+			<li><a href="#" value="/student/show_leavemessages.jsp">状态查看</a></li>
+		</ul>
+		</div>
+   	</s:if>
+   	<!-- 教师菜单 -->
    	<s:if test="#session.userinfo.getUsertype() == 2">
 	  	<h5>教务中心</h5>
 	    <div>
@@ -75,7 +77,7 @@
 $(document).ready(function(){
 	$("#accordion").accordion({heightStyle:"content"});
 	$("#top_menu").menu();
-	$("#sec_menu").menu();
+	$("#stu_message_menu").menu();
 	$("#thr_menu").menu();
 	$("#thi_menu").menu();
 	$("#teachersmessage").menu();

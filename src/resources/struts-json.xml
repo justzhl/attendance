@@ -10,27 +10,31 @@
             	<param name="root">datamap</param>
             </result>
         </action>
+        <action name="LeaveMessagesByTeacherSession" class="GetLeaveMessages" method="getMessageByTeacherSession">
+            <result type="json">
+            	<param name="root">jsonMap</param>
+            </result>
+        </action>
+        <action name="LeaveMessagesByStuSession" class="GetLeaveMessages" method="getMessageByStuSession">
+            <result type="json">
+            	<param name="root">jsonMap</param>
+            </result>
+        </action>
         <action name="listpickedcourses" class="listpickedcoursesAction">
             <result name="success" type="json">
             	<param name="root">dataSet</param>
             </result>
-            <result name="login">/login.html</result>
-            <result name="error">/404.html</result>
         </action>
         <action name="GetTeachMessage" class="GetTeachMessageAction">
             <result name="success" type="json">
             	<param name="root">dataMap</param> 
             </result>
-            <result name="login">/login.html</result>
-            <result name="error">/404.html</result>
         </action>
         
         <action name="GetMyAttendance" class="GetMyAttendance">
             <result name="success" type="json">
             	<param name="root">dataMap</param> 
             </result>
-            <result name="login">/login.html</result>
-            <result name="error">/404.html</result>
         </action>
     </package>
     

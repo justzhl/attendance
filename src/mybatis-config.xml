@@ -9,6 +9,7 @@
 		    
 		    <mapper resource="edu/uestc/attendance/dao/common/PickedCourseMapper.xml" /> 
 		    <mapper resource="edu/uestc/attendance/dao/common/AttendanceMapper.xml" />  
+		    <mapper resource="edu/uestc/attendance/dao/common/LeaveMessagesMapper.xml" /> 
 		    
 		    
 		    <mapper resource="edu/uestc/attendance/dao/student/StudentMapper.xml" />  

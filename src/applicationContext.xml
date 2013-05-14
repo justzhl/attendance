@@ -46,4 +46,11 @@
 	<bean id="listpickedcoursesAction" class="edu.uestc.attendance.action.listpickedcoursesAction"> 
 		<property name="pickedCourse" ref="ListPickedCourse"></property>
 	</bean>
+	<bean id="LeaveMessagesImpl" class="edu.uestc.attendance.impl.LeaveMessagesImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	<bean id="GetLeaveMessages" class="edu.uestc.attendance.json.GetLeaveMessages">
+		<property name="service" ref="LeaveMessagesImpl"></property>
+	</bean>
+	
 </beans>

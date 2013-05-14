@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.uestc.attendance.dao.common.LeaveMessagesMapper">
+
+
+	<resultMap type="edu.uestc.attendance.dao.common.LeaveMessagesEntity" id="LeaveMessagesMapper">
+		<result property="checked" column="checked"/>
+		<result property="teacher_id" column="teacher_id"/>
+		<result property="student_id" column="student_id"/>
+		<result property="course_name" column="course_name"/>
+		<result property="course_time" column="course_time"/>
+		<result property="submit_time" column="submit_time"/>
+		<result property="contents" column="contents"/>
+		<result property="time" column="time"/>
+		
+	</resultMap>
+	
+	
+	<select id="getMessagesByStuId" resultMap="LeaveMessagesMapper" resultType="edu.uestc.attendance.dao.common.LeaveMessagesEntity">
+		select *  from leave_messages where student_id = #{0}
+	</select>
+
+	<select id="getMessagesByTeacherId" resultMap="LeaveMessagesMapper" resultType="edu.uestc.attendance.dao.common.LeaveMessagesEntity">
+		select *  from leave_messages where teacher_id = #{0}
+	</select>
+</mapper>
