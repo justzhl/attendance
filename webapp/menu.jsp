@@ -51,8 +51,8 @@
 		<h5>请假申请</h5>
 		<div>
 		<ul id="stu_message_menu">
-			<li><a href="#">提交申请</a></li>
 			<li><a href="#" value="/student/show_leavemessages.jsp">状态查看</a></li>
+			<li><a href="#" value="/student/submit_leavemessage.jsp">提交申请</a></li>
 		</ul>
 		</div>
    	</s:if>

@@ -11,6 +11,19 @@ public class LeaveMessagesEntity {
 	private long teacher_id;
 	private long student_id;
 	private String course_time;
+	private int instructor_id;
+	public String getCourse_time() {
+		return course_time;
+	}
+	public void setCourse_time(String course_time) {
+		this.course_time = course_time;
+	}
+	public int getInstructor_id() {
+		return instructor_id;
+	}
+	public void setInstructor_id(int instructor_id) {
+		this.instructor_id = instructor_id;
+	}
 	public String getCourse_name() {
 		return course_name;
 	}

@@ -19,4 +19,5 @@
     
     <include file="resources/struts-json.xml" />
     <include file="resources/struts-teacher.xml" />
+    <include file="resources/struts-student.xml" />
 </struts>

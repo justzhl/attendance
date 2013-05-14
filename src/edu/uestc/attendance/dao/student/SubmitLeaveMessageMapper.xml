@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.uestc.attendance.dao.student.SubmitLeaveMessageMapper">
+	
+	
+	<insert id="submit" parameterType="edu.uestc.attendance.dao.common.LeaveMessagesEntity">
+		INSERT INTO leave_message (
+			`contents`,
+			studentid,
+			time,
+			instructorid,
+			submittime
+		)
+		VALUE
+			(#{contents},
+				#{student_id},
+				#{time},
+				#{instructor_id},
+				#{submit_time}
+			)
+	</insert>
+	
+</mapper>

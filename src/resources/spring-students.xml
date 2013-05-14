@@ -19,5 +19,11 @@
     <bean id="GetMyAttendance" class="edu.uestc.attendance.json.ListAttendances">
 		<property name="service" ref="AttendanceImpl"></property>
     </bean>
+    <bean id="StudentSubmitLeaveMessage" class="edu.uestc.attendance.impl.StudentSubmitLeaveMessage">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+    <bean id="SubmitLeaveMessage" class="edu.uestc.attendance.action.student.SubmitLeaveMessage">
+		<property name="service" ref="StudentSubmitLeaveMessage"></property>
+    </bean>
 </beans>
 

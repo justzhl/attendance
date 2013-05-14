@@ -1,0 +1,12 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="student" extends="struts-default" namespace="/student">
+        <action name="SubmitLeaveMessage" class="SubmitLeaveMessage" method="submit">
+        	<result name="success">/student/show_leavemessages.jsp</result>
+        	<result name="input">/student/submit_leavemessage.jsp</result>
+        	<result name="error">/login</result>
+        </action>
+    </package>
+</struts>
