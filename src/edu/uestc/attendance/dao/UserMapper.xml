@@ -19,7 +19,7 @@
 		select 
 			count(*) as result 
 		from 
-			<if test="usertype == 0">administrators where admin_id =#{id} and password=#{pass}</if>
+			<if test="usertype == 0">administrators where admin_id =#{id} and passport=#{pass}</if>
 			<if test="usertype == 1">students where student_id =#{id} and password=#{pass}</if>
 			<if test="usertype == 2">teachers where teacher_id =#{id} and password=#{pass}</if>
 	</select>

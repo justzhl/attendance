@@ -8,7 +8,6 @@
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/druid-0.2.12.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/spring-jdbc-3.2.2.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/spring-tx-3.2.2.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="D:/spring-test-3.2.2.RELEASE.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mybatis"/>

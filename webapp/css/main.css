@@ -58,7 +58,10 @@ body{
 	color:#fff;
 }
 .login_btn {
-	background:/images/login_btn_bg no-repeat;
+	background:url(/images/login_btn.gif) no-repeat;
+	width:125px;
+	height:36px;
+	border:0;
 }
 
 .login_block{
@@ -97,7 +100,7 @@ body{
 }
 
 .main_table{
-	width:98%;
+	width:1200px;
 	margin:0 auto;
 	clear:both;
 }
@@ -107,7 +110,7 @@ body{
 	width:1000;
 	height:110px
 	margin:0 auto;
-	background:url(/images/top_bg.png) repeat-x;
+	background:url(/images/top_bg.jpg) repeat-x;
 }
 
 .top_logo{

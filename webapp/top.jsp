@@ -10,6 +10,9 @@
 
 <body bgcolor="#eee">
     <div class="top_html">
+    	<font color="#fff" style="float:right;">欢迎您，<s:property value="#session.userinfo.getName()" />
+        <s:if test="#session.userinfo.getUsertype() != 1">老师</s:if>
+        <s:if test="#session.userinfo.getUsertype() == 1">同学</s:if></font>
     <table cellpadding="0" cellspacing="0" border="0" height="120" width="100%">
     	<tr><td>
    	  		<img src="images/logo.png" width="180" height="29" alt="logo" /></td></tr>
