@@ -20,7 +20,7 @@
 	<bean id="TeachersMessageImpl" class="edu.uestc.attendance.impl.TeachersMessageImpl">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
-	<bean id="TeachMessage" class="edu.uestc.attendance.action.teacher.TeachMessage">
+	<bean id="TeacherMessage" class="edu.uestc.attendance.action.teacher.TeachMessage">
 		<property name="service" ref="TeachersMessageImpl"></property>
 	</bean>
 </beans>

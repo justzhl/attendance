@@ -37,7 +37,7 @@
         <tbody>
         <s:form action="/teacher/TeachMessage.action" method="post">
             <select name="record.instructor_id">
-	            <s:iterator value="#session.myInstructorId" var="var1">
+	            <s:iterator value="#attr.myInstructorId" var="var1">
 	            	<option value=""><s:property value="var1"/></option>
 	            </s:iterator>
             </select>

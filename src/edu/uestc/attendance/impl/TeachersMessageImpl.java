@@ -20,13 +20,13 @@ public class TeachersMessageImpl implements TeachMessageMapper {
 	}
 
 	@Override
-	public List<TeachMessageEntity> getAll(int teacherid) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<edu.uestc.attendance.dao.student.TeachMessageEntity> getAll(long teacherid) {
+		TeachMessageMapper mapper = sqlSessionFactory.openSession().getMapper(TeachMessageMapper.class);
+		return mapper.getAll(teacherid);
 	}
 
 	@Override
-	public List<TeachMessageEntity> getAllAfterTime(int teacherid,
+	public List<TeachMessageEntity> getAllAfterTime(long teacherid,
 			Date aftertime) {
 		// TODO Auto-generated method stub
 		return null;

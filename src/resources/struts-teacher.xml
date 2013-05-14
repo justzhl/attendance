@@ -1,0 +1,15 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="teacher" extends="struts-default" namespace="/teacher">
+        <action name="TeachMessage" class="TeacherMessage" method="sendMessage">
+        	<result name="success">/teacher/showmessages.jsp</result>
+        	<result name="input">/teacher/submit_messages.jsp</result>
+        	<result name="error">/ajax/index.html</result>
+        </action>
+        <action name="GetMyInstructorId" class="TeacherMessage" method="getMyInstructorId">
+        	<result></result>
+        </action>
+    </package>
+</struts>

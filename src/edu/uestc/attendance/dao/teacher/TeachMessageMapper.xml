@@ -10,6 +10,15 @@
 		<result column="course_name" property="course_name" />
 	</resultMap>
 	
+	<resultMap type="edu.uestc.attendance.dao.student.TeachMessageEntity" id="teacher_TeachMessageEntity">
+		<result column="contents" property="contents" />
+		<result column="submit_time" property="submit_time" />
+		<result column="time" property="time" />
+		<result column="checked" property="checked" />
+		<result column="course_name" property="course_name" />
+		<result column="teacher_id" property="teacher_id" />
+	</resultMap>
+	
 	
 	<insert id="sendMessage"  parameterType="edu.uestc.attendance.dao.teacher.TeachMessageEntity" >
 		insert into teach_message 
@@ -29,4 +38,11 @@
 			instructor_class.courseid = courses.course_id
 		and instructor_class.teacherid = #{0}
 	</select>
+	
+	<!-- 根据教师id获取他的教学信息 -->
+	<select id="getAll" parameterType="long" resultMap="teacher_TeachMessageEntity">
+		select * from 
+		teach_messages_forteacher where teacher_id = #{0}
+	</select>
+	
 </mapper>

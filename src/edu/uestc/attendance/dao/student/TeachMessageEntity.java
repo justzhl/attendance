@@ -5,10 +5,25 @@ import java.sql.Date;
 public class TeachMessageEntity {
 	private long student_id;
 	private String teacher_name;
+	private long teacher_id;
 	private String contents;
 	private Date time;
 	private String course_name;
 	private Date submit_time;
+	private int checked;
+	
+	public int getChecked() {
+		return checked;
+	}
+	public void setChecked(int checked) {
+		this.checked = checked;
+	}
+	public long getTeacher_id() {
+		return teacher_id;
+	}
+	public void setTeacher_id(long teacher_id) {
+		this.teacher_id = teacher_id;
+	}
 	public long getStudent_id() {
 		return student_id;
 	}

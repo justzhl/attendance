@@ -24,7 +24,15 @@ public class TeachMessage extends ActionSupport {
 	private TeachMessageEntity record;
 	private TeachMessageMapper service;
 	private List<String> myInstructorId;
-	
+	private Map jsonMap;
+	public Map getJsonMap() {
+		return jsonMap;
+	}
+
+	public void setJsonMap(Map jsonMap) {
+		this.jsonMap = jsonMap;
+	}
+
 	public void setMyInstructorId(List<String> myInstructorId) {
 		this.myInstructorId = myInstructorId;
 	}
@@ -53,17 +61,30 @@ public class TeachMessage extends ActionSupport {
 			return Action.ERROR;
 		}
 		this.myInstructorId = service.getMyInstructorId(teacher.getId());
-		Map mysession = Session.getTeacherSession();
-		if(mysession.get("myInstructorId") == null){
-			mysession.put("myInstructorId", myInstructorId);
-		} else {
-			mysession.remove("myInstructorId");
-			mysession.put("myInstructorId", myInstructorId);
+		HttpServletRequest mysession = ServletActionContext.getRequest();
+		if(mysession !=null){
+			mysession.setAttribute("myInstructorId", myInstructorId);
+			return Action.SUCCESS;
+		}else {
+			return Action.ERROR;
 		}
+	}
+	
+	//查询对应老师的信息
+	public String getMessage(){
+		UserEntity user = Session.getTeacher();
+		if(user == null){
+			return Action.LOGIN;
+		}
+		List<edu.uestc.attendance.dao.student.TeachMessageEntity> lists = service.getAll(user.getId());
+		jsonMap = new HashMap();
+		jsonMap.put("aaData",lists);
+		System.out.println(lists.size());
 		return Action.SUCCESS;
 	}
 	
 	
+	//提交教学信息
 	public String sendMessage(){
 		UserEntity user = Session.getTeacher();
 		if(user == null){

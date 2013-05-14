@@ -1,0 +1,44 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="json" extends="json-default" namespace="/json">
+        <!-- 定义处理请求URL为login.action的Action -->
+        <action name="liststudents" class="listStudents">
+            <!-- 定义处理结果字符串和资源之间的映射关系 -->
+            <result type="json">
+            	<param name="root">datamap</param>
+            </result>
+        </action>
+        <action name="listpickedcourses" class="listpickedcoursesAction">
+            <result name="success" type="json">
+            	<param name="root">dataSet</param>
+            </result>
+            <result name="login">/login.html</result>
+            <result name="error">/404.html</result>
+        </action>
+        <action name="GetTeachMessage" class="GetTeachMessageAction">
+            <result name="success" type="json">
+            	<param name="root">dataMap</param> 
+            </result>
+            <result name="login">/login.html</result>
+            <result name="error">/404.html</result>
+        </action>
+        
+        <action name="GetMyAttendance" class="GetMyAttendance">
+            <result name="success" type="json">
+            	<param name="root">dataMap</param> 
+            </result>
+            <result name="login">/login.html</result>
+            <result name="error">/404.html</result>
+        </action>
+    </package>
+    
+    <package name="json_teacher" extends="json-default" namespace="/json/teacher">
+    	<action name="getteachermessagebysession" class="TeacherMessage" method="getMessage">
+            <result name="success" type="json">
+            	<param name="root">jsonMap</param> 
+            </result>
+    	</action>
+    </package>
+</struts>

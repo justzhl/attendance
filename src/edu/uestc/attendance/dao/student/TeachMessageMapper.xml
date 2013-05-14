@@ -8,12 +8,13 @@
 		<result column="time" property="time" />
 		<result column="teacher_time" property="teacher_time" />
 		<result column="course_name" property="course_name" />
+		<result column="teacher_id" property="teacher_id" />
 	</resultMap>
 	
 	
 	<select id="getAll" parameterType="long" resultMap="student_TeachMessageEntity">
 		select * from 
-		get_teach_messages where student_id = #{0}
+		teach_messages_forstudents where student_id = #{0}
 	</select>
 	
 </mapper>

@@ -25,7 +25,7 @@
         <tbody>
             <tr>
                 <td width="25%">
-                    <iframe name="menu_frame" src="./menu.html" frameborder="0" width="100%" height="1000px" ></iframe>
+                    <iframe name="menu_frame" src="./menu.jsp" frameborder="0" width="100%" height="1000px" ></iframe>
                 </td>
                 <td style="border-left:10px solid #eee;">
                     <iframe name="content_frame" id="content_frame" src="/ajax/index.html" frameborder="0" width="100%" height="1000px" ></iframe>
